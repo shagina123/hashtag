@@ -5,9 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(0, 0, 0, 0.918);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@font-face {
+  font-family: "PoppinsRegular";
+  src: local("PoppinsRegular"),url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  color:  white !important;
+
+  font-weight: normal;
 }

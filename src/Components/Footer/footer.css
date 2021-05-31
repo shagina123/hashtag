@@ -1,0 +1,21 @@
+.footer img{
+    object-fit: contain !important;
+    width: 80%;
+    
+}
+.footer .card{
+    background-color:  transparent !important;
+    padding: none !important;
+}
+.footer{
+    margin-right: 20% !important;
+    margin-left: 20%;
+    margin-top: 20px !important;
+    margin-bottom: 0px !important;
+    color: rgb(161, 164, 168) !important;
+
+}
+.last{
+    margin-bottom: 20px !important;
+    color: rgb(161, 164, 168) !important;
+}
