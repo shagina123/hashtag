@@ -262,6 +262,7 @@ export default class SignUpForm extends React.Component {
 
                             <button type="submit" className="btn btn-primary  submit">Submit</button>
                         </Form>
+                       
                     </div>
                      )} 
             </Formik>
