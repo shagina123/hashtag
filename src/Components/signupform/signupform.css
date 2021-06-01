@@ -58,7 +58,8 @@ option{
 }
 .signupdata{
     opacity: 100% !important;
-    background-color:  red !important;
+    background-color: transparent !important;
+    z-index: 44444 !important;
     
 }
 .form-check-input:checked{
