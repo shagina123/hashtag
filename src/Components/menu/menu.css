@@ -33,6 +33,7 @@
     border-radius: 45px !important;
     border:  2px solid rgb(64, 226, 126) !important;
 }
+
 .srccont{
     width: 100% !important;
     /* background-color: brown; */
@@ -42,13 +43,18 @@
     .searchinput{
         width: 100%;  
         margin-left: 0% !important;
-        height: 20px !important;
+        height: 30px !important;
         margin-bottom: 20px !important;
+    }
+   .menu .nav-link{
+        
+        padding-left: 0% !important;
+        text-align: left !important;
     }
     .btnsvg{
         margin-left: -50px !important;
         border: none !important;
-        height: 20px !important;
+        height: 30px !important;
         margin-top: -6px !important;
     }    
     .logo{

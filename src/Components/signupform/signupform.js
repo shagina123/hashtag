@@ -8,34 +8,36 @@ const Validations = Yup.object().shape({
 
     fname: Yup.string().required("required")
         .min(2, "too short"),
-        lname: Yup.string().required("required")
+    lname: Yup.string().required("required")
         .min(1, "too short"),
-        uname: Yup.string().required("required")
+    uname: Yup.string().required("required")
         .min(6, "too short"),
-        uname: Yup.string().required("required")
+    uname: Yup.string().required("required")
         .min(6, "too short"),
-        pwd: Yup.string().required("required")
-        .min(6, "too short")
-
+    pwd: Yup.string().required("required")
+        .min(6, "too short") ,
+       email: Yup.string().matches(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,'Invalid email address')
+    
 }
 )
 export default class SignUpForm extends React.Component {
     state = {
         user: "",
-        time:""
+        time: "",
+        checked:"false"
     }
     submit = (values) => {
 
         // let amount = values.amount
-        let fname=values.fname
-        let lname=values.lname
-        let uname=values.uname
-        let email=values.email
-        let pwd=values.pwd
-        let time=this.state.time
+        let fname = values.fname
+        let lname = values.lname
+        let uname = values.uname
+        let email = values.email
+        let pwd = values.pwd
+        let time = this.state.time
         let user = this.state.user
 
-        Api.signup(user,fname,lname,uname,email,pwd,time)
+        Api.signup(user, fname, lname, uname, email, pwd, time)
             .then(response => {
                 // alert("succ")
                 swal("Successfully signedup", response.data.message, "success")
@@ -45,7 +47,7 @@ export default class SignUpForm extends React.Component {
                 swal("Sign up failed", error.response.data.message, "warning")
             })
 
-
+        
 
     }
     setFan = () => {
@@ -54,27 +56,29 @@ export default class SignUpForm extends React.Component {
     setTalent = () => {
         this.setState({ user: "talent" })
     }
-  selection=(e)=>{
-      this.setState({time:e.target.Value})
+    selection = (e) => {
+        this.setState({ time: e.target.Value })
 
-  }
+    }
+    onChecked=()=>
+    {this.setState({checked:!this.state.checked})}
     render() {
 
         return (
-            <Formik 
-            initialValues={{
-                fname: "",
-                lname:"",
-                uname:"",
-                email:"",
-                pwd: ""
-            }}
+            <Formik
+                initialValues={{
+                    fname: "",
+                    lname: "",
+                    uname: "",
+                    email: "",
+                    pwd: ""
+                }}
 
                 onSubmit={this.submit
                 }
-                validationSchema={Validations}
-            >     
-                      {({ errors, touched }) => (
+                validationSchema={Validations}  
+            >
+                {({ errors, touched }) => (
                     <div className='signupform font-face-poppins'>
 
                         <ul className="nav nav-pills mb-3 signuptab" id="pills-tab" role="tablist" >
@@ -92,7 +96,8 @@ export default class SignUpForm extends React.Component {
 
                         </div>
 
-<div><h3 className="font-face-poppins">Create your fan account</h3></div>
+                        <div><h3 className="font-face-poppins">Create your fan account</h3>
+                        </div>
                         <Form className='signupdata font-face-poppins' >
                             <div className="mb-3">
                                 <label for="firstname" className="form-label font-face-poppins" >First Name*</label>
@@ -126,7 +131,7 @@ export default class SignUpForm extends React.Component {
                             </div>
                             <div className="mb-3 align-items-center">
                                 <label for="exampleInputEmail1" className="form-label">Email address</label>
-                                <Field className="form-control" name="email" placeholder="Email"  required="true" ></Field><br></br>
+                                <Field className="form-control" name="email" placeholder="Email" required="true" ></Field><br></br>
                                 {
                                     errors.uname && touched.email ? (
                                         <div className="errorsV">{errors.email}
@@ -137,7 +142,7 @@ export default class SignUpForm extends React.Component {
                             <div className="mb-3">
 
                                 <label for="pwd" className="form-label">Password</label>
-                                <Field type="password" className="form-control" name="pwd"  required="true" ></Field><br></br>
+                                <Field type="password" className="form-control" name="pwd" required="true" ></Field><br></br>
                                 {
                                     errors.pwd && touched.pwd ? (
                                         <div className="errorsV">{errors.pwd}
@@ -256,15 +261,15 @@ export default class SignUpForm extends React.Component {
                                 </select>
                             </div>
                             <div className="mb-3 form-check"><label className="form-check-label" for="exampleCheck1">
-                                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                                <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.onChecked}/>
                         I agreed to the <span>terms & conditions</span></label>
                             </div>
 
-                            <button type="submit" className="btn btn-primary  submit">Submit</button>
+                            <button type="submit" className="btn btn-primary  submit" disabled={this.state.checked}>Submit</button>
                         </Form>
-                       
+
                     </div>
-                     )} 
+                )}
             </Formik>
         )
     }
