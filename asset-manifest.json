@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dacc5bf.chunk.css",
+    "main.css": "/static/css/main.00573219.chunk.css",
     "main.js": "/static/js/main.4b1ec0ee.chunk.js",
     "main.js.map": "/static/js/main.4b1ec0ee.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.6eeaf783.js",
@@ -10,7 +10,7 @@
     "static/js/3.6053b2b4.chunk.js": "/static/js/3.6053b2b4.chunk.js",
     "static/js/3.6053b2b4.chunk.js.map": "/static/js/3.6053b2b4.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6dacc5bf.chunk.css.map": "/static/css/main.6dacc5bf.chunk.css.map",
+    "static/css/main.00573219.chunk.css.map": "/static/css/main.00573219.chunk.css.map",
     "static/js/2.c7f12f08.chunk.js.LICENSE.txt": "/static/js/2.c7f12f08.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Poppins-Regular.8081832f.ttf",
     "static/media/fanconvo.c4ba8d22.png": "/static/media/fanconvo.c4ba8d22.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.6eeaf783.js",
     "static/js/2.c7f12f08.chunk.js",
-    "static/css/main.6dacc5bf.chunk.css",
+    "static/css/main.00573219.chunk.css",
     "static/js/main.4b1ec0ee.chunk.js"
   ]
 }
