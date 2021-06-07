@@ -16,7 +16,7 @@ const Validations = Yup.object().shape({
         .min(6, "too short"),
     pwd: Yup.string().required("required")
         .min(6, "too short") ,
-       email: Yup.string().matches(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,'Invalid email address')
+       email: Yup.string().matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,'Invalid email address')
     
 }
 )
@@ -36,7 +36,10 @@ export default class SignUpForm extends React.Component {
         let pwd = values.pwd
         let time = this.state.time
         let user = this.state.user
-
+        if(this.state.checked==="false")
+           alert("Please click agree to terms and conditions")
+           else
+           {
         Api.signup(user, fname, lname, uname, email, pwd, time)
             .then(response => {
                 // alert("succ")
@@ -47,7 +50,7 @@ export default class SignUpForm extends React.Component {
                 swal("Sign up failed", error.response.data.message, "warning")
             })
 
-        
+        } 
 
     }
     setFan = () => {
@@ -150,7 +153,9 @@ export default class SignUpForm extends React.Component {
                                     ) : null
                                 }
                             </div>
-                            <div className="mb-3">
+                            <div className="mb-3   mb">
+                            <label for="timezon" className="form-label">TimeZone</label>
+
                                 <select className="form-select timezon font-fave-poppins" aria-label="Default select example" onChange={this.selection}>
                                     <option value=" International Date Line West">(UTC-12:00) International Date Line West</option>
                                     <option value="(UTC-11:00) Coordinated Universal Time-11">(UTC-11:00) Coordinated Universal Time-11</option>
